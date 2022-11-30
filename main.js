@@ -8,7 +8,9 @@ const jobLogo = document.getElementById('job-logo');
 const jobRemote = document.getElementById('job-remote');
 
 const fetchGupy = async (gupy) => {
-  const APIResponse = await fetch(`https://cors-everywhere.onrender.com/https://portal.gupy.io/_next/data/lSTZemWfxCuGRPIikwn3c/pt/job-search/term=Analista%20financeiro.json`);
+  // const APIResponse = await fetch(`https://cors-everywhere.onrender.com/https://portal.gupy.io/_next/data/lSTZemWfxCuGRPIikwn3c/pt/job-search/term=Analista%20financeiro.json`);
+
+  const APIResponse = await fetch(`https://portal.gupy.io/_next/data/lSTZemWfxCuGRPIikwn3c/pt/job-search/term=Analista%20financeiro.json`);
 
   if (APIResponse.status === 200) {
     const data = await APIResponse.json();
