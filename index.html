@@ -4,13 +4,348 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gupy Jobs</title>
+
+  <!-- Links -->
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/phosphor-icons"></script>
+
+  <!-- Main JS (defer para que o JS carregue somente depois do HTML) -->
+  <script defer src="./main.js"></script>
+
+  <title>RocketJobs</title>
 </head>
 
 <body>
-  <script type="module" src="/main.js"></script>
+  <header>
+    <h1 class="logo">ROCKETJOBS
+      <span>.</span>
+    </h1>
+  </header>
+  <div class="container">
+
+    <div class="find-jobs">
+      <div class="find-header">
+        <h2>Encontrar vagas</h2>
+
+        <button onclick="ShowFilter()">
+          <i class=" ph-caret-down-thin"></i>
+        </button>
+      </div>
+      <hr>
+
+      <form id="filter-show">
+        <fieldset>
+          <legend>Local de trabalho</legend>
+
+          <div class="info-group">
+            <label for="">Estado</label>
+            <select name="state" id="state">
+              <option value="sp">São Paulo</option>
+              <option value="rj">Rio de Janeiro</option>
+              <option value="sc">Santa Catarina</option>
+            </select>
+          </div>
+
+          <div class="info-group">
+            <label for="">Cidade</label>
+            <select name="state" id="state">
+              <option value="sp">São Paulo</option>
+              <option value="rj">Rio de Janeiro</option>
+              <option value="sc">Santa Catarina</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Dados da Vaga</legend>
+
+          <div class="info-group">
+            <label for="">Empresa</label>
+            <input type="text">
+          </div>
+
+          <div class="info-group">
+            <label for="">Tipo da Vaga</label>
+            <select name="state" id="state">
+              <option value="sp">São Paulo</option>
+              <option value="rj">Rio de Janeiro</option>
+              <option value="sc">Santa Catarina</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Trabalho Remoto</legend>
+
+          <div class="info-group">
+            <div class="input-radio">
+              <input type="radio" id="remote" name="drone" value="remote" checked>
+              <label for="remote">Sim</label>
+
+              <input type="radio" id="remote" name="drone" value="remote" checked>
+              <label for="remote">Não</label>
+
+              <input type="radio" id="remote" name="drone" value="remote" checked>
+              <label for="remote">Tanto faz</label>
+            </div>
+          </div>
+
+
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="cards-container">
+      <div class="cards">
+        <div class="title">
+          <div class="info-company">
+            <img src="https://github.com/phosphor-icons/phosphor-home/raw/master/meta/phosphor-mark-tight-yellow.png"
+              alt="">
+
+            <h1 id="company">Phosphor Icons</h1>
+          </div>
+          <h3 id="job-title">Programador Front-end</h3>
+        </div>
+
+        <div class="location">
+          <span id="city">São Paulo</span>
+          <span>/</span>
+          <span id="state">São Paulo</span>
+        </div>
+
+        <span id=' date'>Data da vaga: 29/11/2022</span>
+
+        <a href="">
+          Conferir vaga
+          <i class="ph-arrow-square-out-fill"></i>
+        </a>
+      </div>
+
+      <div class="cards">
+        <div class="title">
+          <div class="info-company">
+            <img src="https://github.com/phosphor-icons/phosphor-home/raw/master/meta/phosphor-mark-tight-yellow.png"
+              alt="">
+
+            <h1 id="company">Phosphor Icons</h1>
+          </div>
+          <h3 id="job-title">Programador Front-end</h3>
+        </div>
+
+        <div class="location">
+          <span id="city">São Paulo</span>
+          <span>/</span>
+          <span id="state">São Paulo</span>
+        </div>
+
+        <span id='date'>Data da vaga: 29/11/2022</span>
+
+        <a href="">
+          Conferir vaga
+          <i class="ph-arrow-square-out-fill"></i>
+        </a>
+      </div>
+
+      <div class="cards">
+        <div class="title">
+          <div class="info-company">
+            <img src="https://github.com/phosphor-icons/phosphor-home/raw/master/meta/phosphor-mark-tight-yellow.png"
+              alt="">
+
+            <h1 id="company">Phosphor Icons</h1>
+          </div>
+          <h3 id="job-title">Programador Front-end</h3>
+        </div>
+
+        <div class="location">
+          <span id="city">São Paulo</span>
+          <span>/</span>
+          <span id="state">São Paulo</span>
+        </div>
+
+        <span id='date'>Data da vaga: 29/11/2022</span>
+
+        <a href="">
+          Conferir vaga
+          <i class="ph-arrow-square-out-fill"></i>
+        </a>
+      </div>
+
+      <div class="cards">
+        <div class="title">
+          <div class="info-company">
+            <img src="https://github.com/phosphor-icons/phosphor-home/raw/master/meta/phosphor-mark-tight-yellow.png"
+              alt="">
+
+            <h1 id="company">Phosphor Icons</h1>
+          </div>
+          <h3 id="job-title">Programador Front-end</h3>
+        </div>
+
+        <div class="location">
+          <span id="city">São Paulo</span>
+          <span>/</span>
+          <span id="state">São Paulo</span>
+        </div>
+
+        <span id='date'>Data da vaga: 29/11/2022</span>
+
+        <a href="">
+          Conferir vaga
+          <i class="ph-arrow-square-out-fill"></i>
+        </a>
+      </div>
+
+      <div class="cards">
+        <div class="title">
+          <div class="info-company">
+            <img src="https://github.com/phosphor-icons/phosphor-home/raw/master/meta/phosphor-mark-tight-yellow.png"
+              alt="">
+
+            <h1 id="company">Phosphor Icons</h1>
+          </div>
+          <h3 id="job-title">Programador Front-end</h3>
+        </div>
+
+        <div class="location">
+          <span id="city">São Paulo</span>
+          <span>/</span>
+          <span id="state">São Paulo</span>
+        </div>
+
+        <span id='date'>Data da vaga: 29/11/2022</span>
+
+        <a href="">
+          Conferir vaga
+          <i class="ph-arrow-square-out-fill"></i>
+        </a>
+      </div>
+
+      <div class="cards">
+        <div class="title">
+          <div class="info-company">
+            <img src="https://github.com/phosphor-icons/phosphor-home/raw/master/meta/phosphor-mark-tight-yellow.png"
+              alt="">
+
+            <h1 id="company">Phosphor Icons</h1>
+          </div>
+          <h3 id="job-title">Programador Front-end</h3>
+        </div>
+
+        <div class="location">
+          <span id="city">São Paulo</span>
+          <span>/</span>
+          <span id="state">São Paulo</span>
+        </div>
+
+        <span id='date'>Data da vaga: 29/11/2022</span>
+
+        <a href="">
+          Conferir vaga
+          <i class="ph-arrow-square-out-fill"></i>
+        </a>
+      </div>
+
+      <div class="cards">
+        <div class="title">
+          <div class="info-company">
+            <img src="https://github.com/phosphor-icons/phosphor-home/raw/master/meta/phosphor-mark-tight-yellow.png"
+              alt="">
+
+            <h1 id="company">Phosphor Icons</h1>
+          </div>
+          <h3 id="job-title">Programador Front-end</h3>
+        </div>
+
+        <div class="location">
+          <span id="city">São Paulo</span>
+          <span>/</span>
+          <span id="state">São Paulo</span>
+        </div>
+
+        <span id='date'>Data da vaga: 29/11/2022</span>
+
+        <a href="">
+          Conferir vaga
+          <i class="ph-arrow-square-out-fill"></i>
+        </a>
+      </div>
+
+      <div class="cards">
+        <div class="title">
+          <div class="info-company">
+            <img src="https://github.com/phosphor-icons/phosphor-home/raw/master/meta/phosphor-mark-tight-yellow.png"
+              alt="">
+
+            <h1 id="company">Phosphor Icons</h1>
+          </div>
+          <h3 id="job-title">Programador Front-end</h3>
+        </div>
+
+        <div class="location">
+          <span id="city">São Paulo</span>
+          <span>/</span>
+          <span id="state">São Paulo</span>
+        </div>
+
+        <span id='date'>Data da vaga: 29/11/2022</span>
+
+        <a href="">
+          Conferir vaga
+          <i class="ph-arrow-square-out-fill"></i>
+        </a>
+      </div>
+
+      <div class="cards">
+        <div class="title">
+          <div class="info-company">
+            <img src="https://github.com/phosphor-icons/phosphor-home/raw/master/meta/phosphor-mark-tight-yellow.png"
+              alt="">
+
+            <h1 id="company">Phosphor Icons</h1>
+          </div>
+          <h3 id="job-title">Programador Front-end</h3>
+        </div>
+
+        <div class="location">
+          <span id="city">São Paulo</span>
+          <span>/</span>
+          <span id="state">São Paulo</span>
+        </div>
+
+        <span id='date'>Data da vaga: 29/11/2022</span>
+
+        <a href="">
+          Conferir vaga
+          <i class="ph-arrow-square-out-fill"></i>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+  <footer>
+    Feito com 💜 por <a href="https://birobirobiro.dev/" target="_blank">birobirobiro</a>
+  </footer>
+
+  <script>
+    function ShowFilter() {
+      var htmlShow = document.getElementById("filter-show");
+      if (htmlShow.style.display === "none") {
+        htmlShow.style.display = "block";
+      } else {
+        htmlShow.style.display = "none";
+      }
+    }
+  </script>
 </body>
 
 </html>

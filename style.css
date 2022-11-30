@@ -1,16 +1,208 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
+  --bg-color: #181b23;
+  --bg-color-card: #1f2029;
+  --pink: #ed64a6;
+  --white: #eeeef2;
+  --border: #b3b5c6;
+  --line: #353646;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--white);
+  font-family: "Roboto", sans-serif;
+  justify-content: center;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--pink);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  color: var(--pink);
+}
+
+hr {
+  color: var(--line);
+  margin: 1.5rem 0;
+  opacity: 0.6;
+  border-width: 0px 0px 1px;
+}
+
+fieldset {
+  display: flex;
+  border: none;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+legend {
+  font-weight: 700;
+  padding: 1rem 0px;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.find-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.find-jobs {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color-card);
+  border-radius: 0.5rem;
+  color: var(--white);
+  font-size: 1.25rem;
+  padding: 2rem;
+  justify-content: center;
+}
+
+.find-jobs h2 {
   font-weight: 400;
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+.search,
+.info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+.input-radio {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+input,
+select {
+  background-color: var(--bg-color);
+  border-radius: 0.25rem;
+  border: transparent;
+  height: 3rem;
+  color: var(--white);
+  font-size: 1.25rem;
+  padding: 0.5rem;
+}
+
+input[type="radio"] {
+  width: unset;
+  height: unset;
+  margin: unset;
+}
+
+input[type]:focus {
+  outline: 2px solid var(--pink);
+}
+
+.logo {
+  font-size: 2.5rem;
+  color: var(--white);
+}
+
+.logo span {
+  color: var(--pink);
+}
+
+header,
+footer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 6.25rem;
+  margin-bottom: 3rem;
+  background-color: var(--bg-color-card);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem;
+  gap: 3rem;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.25rem;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color-card);
+  border-radius: 0.5rem;
+  border: 0.01rem solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  gap: 1.25rem;
+  transition: all 0.3s ease 0s;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-company {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.info-company img {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.location {
+  gap: 0.5rem;
+  display: flex;
+}
+
+footer {
+  margin: 0px;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
