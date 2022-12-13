@@ -159,7 +159,6 @@ footer {
   display: flex;
   flex-direction: column;
   background-color: var(--bg-color-card);
-  border-radius: 0.5rem;
   border: 0.01rem solid var(--border);
   border-radius: 0.5rem;
   padding: 1.25rem;
@@ -190,9 +189,12 @@ footer {
 }
 
 footer {
+  width: 100%;
   margin: 0px;
   gap: 0.5rem;
   font-size: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 @media (min-width: 768px) {

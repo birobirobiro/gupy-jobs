@@ -8,9 +8,7 @@ const jobLogo = document.getElementById('job-logo');
 const jobRemote = document.getElementById('job-remote');
 
 const fetchGupy = async (gupy) => {
-  // const APIResponse = await fetch(`https://cors-everywhere.onrender.com/https://portal.gupy.io/_next/data/lSTZemWfxCuGRPIikwn3c/pt/job-search/term=Analista%20financeiro.json`);
-
-  const APIResponse = await fetch(`https://portal.gupy.io/_next/data/lSTZemWfxCuGRPIikwn3c/pt/job-search/term=Analista%20financeiro.json`);
+  const APIResponse = await fetch(`https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?jobName=Analista%20financeiro&limit=50`);
 
   if (APIResponse.status === 200) {
     const data = await APIResponse.json();
@@ -23,27 +21,26 @@ const fetchGupy = async (gupy) => {
 
 const renderGupy = async (gupy) => {
 
-  const data = await fetchGupy(gupy)
+  const response = await fetchGupy(gupy)
 
-  jobCompany.innerHTML = data['pageProps']['dehydratedState']['queries'][0]['state']['data']['pages'][0]['data'][0]['careerPageName']
+  response.data.forEach(element => {
 
-  jobTitle.innerHTML = data['pageProps']['dehydratedState']['queries'][0]['state']['data']['pages'][0]['data'][0]['name']
+    jobCompany.innerHTML = element['careerPageName']
 
-  jobCity.innerHTML = data['pageProps']['dehydratedState']['queries'][0]['state']['data']['pages'][0]['data'][0]['city']
+    jobTitle.innerHTML = element['name']
 
-  jobState.innerHTML = data['pageProps']['dehydratedState']['queries'][0]['state']['data']['pages'][0]['data'][0]['state']
+    jobCity.innerHTML = element['city']
 
-  jobDate.innerHTML = `Data da vaga: ` + data['pageProps']['dehydratedState']['queries'][0]['state']['data']['pages'][0]['data'][0]['publishedDate']
+    jobState.innerHTML = element['state']
 
-  jobLink.innerHTML = data['pageProps']['dehydratedState']['queries'][0]['state']['data']['pages'][0]['data'][0]['careerPageUrl']
+    jobDate.innerHTML = `Data da vaga: ` + new Date(element['publishedDate']).toLocaleDateString()
 
-  jobLogo.src = data['pageProps']['dehydratedState']['queries'][0]['state']['data']['pages'][0]['data'][0]['careerPageLogo']
+    jobLink.innerHTML = element['careerPageUrl']
 
-  if (jobLogo.src === undefined || null) {
-    jobLogo.src = 'https://via.placeholder.com/150'
-  }
+    jobLogo.src = element['careerPageLogo']
 
-  jobRemote.innerHTML = data['pageProps']['dehydratedState']['queries'][0]['state']['data']['pages'][0]['data'][0]['isRemoteWork'] === true ? 'Remoto: Sim' : 'Remoto: Não'
+    jobRemote.innerHTML = element['isRemoteWork'] === true ? 'Remoto: Sim' : 'Remoto: Não'
+  });
 
 }
 
