@@ -1,3 +1,4 @@
+// filter hide/show
 var htmlShow = document.getElementById("filter-show");
 htmlShow.style.display = "none";
 
