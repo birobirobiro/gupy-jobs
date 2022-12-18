@@ -1,10 +1,7 @@
 const fetchGupy = async () => {
 
   //  Local
-  const APIResponse = await fetch(`https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?isRemoteWork=true&jobName=Analista%20financeiro&limit=100`);
-
-  // Production
-  // const APIResponse = await fetch(`https://portal.api.gupy.io/api/v1/jobs?isRemoteWork=true&jobName=Analista%20financeiro&limit=100`);
+  const APIResponse = await fetch(`https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?isRemoteWork=true&jobName=Analista%20financeiro&limit=300&type=vacancy_type_effective`);
 
   if (APIResponse.status === 200) {
     const data = await APIResponse.json();
@@ -27,13 +24,27 @@ const renderGupy = async () => {
   const jobCards = sortedJobs.map(element => {
     return `
       <div class="cards">
+          
         <div class="title">
-          <div class="info-company">
-            <img src="${element['careerPageLogo']}" alt="${element['careerPageName']}" >
+        <div class="info-company">
+        <img src="${element['careerPageLogo']}" alt="${element['careerPageName']}" >
+        
+        <h1 class="job-company">${element['careerPageName']}</h1>
+        
+        <div class="tooltip">
+        <span class="tooltiptext"></span>
+        </div>
 
-            <h1 class="job-company">${element['careerPageName']}</h1>
-          </div>
+        <h3 class="tooltip">${element['badges']['friendlyBadge']
+        === true ? "🏆" : ''
+      }
+          <span class="tooltiptext">Empresa com selo Gupy</span>
+        </h3>
+          
+        </div>
+          
           <h3>${element['name']}</h3>
+
         </div>
 
         <div class="location">
@@ -43,10 +54,10 @@ const renderGupy = async () => {
         </div>
 
         <span>Data da vaga: ${new Date(element['publishedDate']).toLocaleDateString('pt-BR', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    })}</span>
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      })}</span>
 
         <span>Trabalho remoto:  ${element['isRemoteWork'] === true ? 'Sim' : 'Não'}</span>
 
