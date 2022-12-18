@@ -1,6 +1,6 @@
 const fetchGupy = async () => {
 
-  const APIResponse = await fetch(`https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?&jobName=financeiro&limit=300&type=vacancy_type_effective`);
+  const APIResponse = await fetch(`https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?&jobName=financeiro&limit=300&type=vacancy_type_effective&isRemoteWork=true`);
 
   if (APIResponse.status === 200) {
     const data = await APIResponse.json();
