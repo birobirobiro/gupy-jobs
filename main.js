@@ -1,10 +1,18 @@
+var htmlShow = document.getElementById("filter-show");
+htmlShow.style.display = "none";
+
+function ShowFilter() {
+  var htmlShow = document.getElementById("filter-show");
+  if (htmlShow.style.display === "none") {
+    htmlShow.style.display = "block";
+  } else {
+    htmlShow.style.display = "none";
+  }
+}
+
 const fetchGupy = async () => {
-  //  Produção
-  const APIResponse = await fetch(`https://portal.api.gupy.io/api/v1/jobs?isRemoteWork=true&jobName=financeiro&limit=300&type=vacancy_type_effective`);
 
-
-  // Local
-  // const APIResponse = await fetch(`https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?isRemoteWork=true&jobName=financeiro&limit=300&type=vacancy_type_effective`);
+  const APIResponse = await fetch(`https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?isRemoteWork=true&jobName=financeiro&limit=300&type=vacancy_type_effective`);
 
   if (APIResponse.status === 200) {
     const data = await APIResponse.json();
