@@ -53,7 +53,7 @@ const renderGupy = async () => {
           <span>${element['state']}</span>
         </div>
 
-        <span>Data da vaga: ${new Date(element['publishedDate']).toLocaleDateString('pt-BR', {
+        <span>Vaga publicada em: ${new Date(element['publishedDate']).toLocaleDateString('pt-BR', {
         day: '2-digit',
         month: '2-digit',
         year: 'numeric'
