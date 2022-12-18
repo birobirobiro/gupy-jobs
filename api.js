@@ -29,10 +29,6 @@ const renderGupy = async () => {
         <img src="${element['careerPageLogo']}" alt="${element['careerPageName']}" >
         
         <h1 class="job-company">${element['careerPageName']}</h1>
-        
-        <div class="tooltip">
-        <span class="tooltiptext"></span>
-        </div>
           
         </div>
           
