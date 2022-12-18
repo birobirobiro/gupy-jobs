@@ -1,6 +1,6 @@
 const fetchGupy = async () => {
 
-  const APIResponse = await fetch(`https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?isRemoteWork=true&jobName=financeiro&limit=300&type=vacancy_type_effective`);
+  const APIResponse = await fetch(`https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?&jobName=financeiro&limit=300&type=vacancy_type_effective`);
 
   if (APIResponse.status === 200) {
     const data = await APIResponse.json();
@@ -33,12 +33,6 @@ const renderGupy = async () => {
         <div class="tooltip">
         <span class="tooltiptext"></span>
         </div>
-
-        <h3 class="tooltip">${element['badges']['friendlyBadge']
-        === true ? "🏆" : ''
-      }
-          <span class="tooltiptext">Empresa com selo Gupy</span>
-        </h3>
           
         </div>
           
@@ -53,12 +47,21 @@ const renderGupy = async () => {
         </div>
 
         <span>Vaga publicada em: ${new Date(element['publishedDate']).toLocaleDateString('pt-BR', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-      })}</span>
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    })}</span>
 
-        <span>Trabalho remoto:  ${element['isRemoteWork'] === true ? 'Sim' : 'Não'}</span>
+        <span class="tooltip">Trabalho remoto:  ${element['isRemoteWork'] === true ? `🏠 <span class="tooltiptext">Sim
+        </span>` : `🏢 <span class="tooltiptext">Não
+        </span>`}</span>
+
+        <span class="tooltip">Tem selo Gupy: ${element['badges']['friendlyBadge']
+        === true ? `✅ <span class="tooltiptext">Empresas com alta taxa de retorno e atividade nas vagas nos últimos 3 meses
+        </span>` : `🚫 <span class="tooltiptext">Sem informações
+        </span>`
+      }
+        </span>
 
         <a href="${element['careerPageUrl']}" target"_blank">
         Ver vaga

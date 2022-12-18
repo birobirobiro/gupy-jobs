@@ -27,6 +27,7 @@ a {
   gap: 0.5rem;
   color: var(--pink);
   text-decoration: none;
+  font-weight: 700;
 }
 
 a:hover {
@@ -184,21 +185,14 @@ footer {
   height: 1.8rem;
 }
 
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-  cursor: default;
-}
-
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
-  background-color: black;
+  width: 10rem;
+  background-color: rgb(20, 20, 20);
   color: #fff;
   text-align: center;
   border-radius: 6px;
-  padding: 5px 0;
+  padding: 0.5rem;
   font-size: 16px;
 
   /* Position the tooltip */
