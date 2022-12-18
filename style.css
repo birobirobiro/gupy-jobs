@@ -18,6 +18,7 @@ body {
   color: var(--white);
   font-family: "Roboto", sans-serif;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 a {
