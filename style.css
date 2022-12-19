@@ -64,9 +64,16 @@ form {
   gap: 1.5rem;
 }
 
+label {
+  color: #9799a6;
+}
+
 legend {
   font-weight: 700;
   padding: 1rem 0px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 button {
@@ -110,6 +117,22 @@ button {
   align-items: center;
 }
 
+.ph-house {
+  color: #b3b5c6;
+}
+
+.ph-buildings {
+  color: #f8f8f2;
+}
+
+.ph-circle-wavy-check {
+  color: #50fa7b;
+}
+
+.ph-circle-wavy-warning {
+  color: #f1fa8c !important;
+}
+
 input,
 select {
   background-color: var(--bg-color);
@@ -117,7 +140,7 @@ select {
   border: transparent;
   height: 3rem;
   color: var(--white);
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   padding: 0.5rem;
 }
 
@@ -215,14 +238,20 @@ footer {
 }
 
 .remote-work .tooltip .tooltiptext {
-  margin-left: 1.25rem;
+  margin-left: 10rem;
 }
 
 .gupy .tooltip .tooltiptext {
-  margin-left: 9rem;
+  margin-left: 13rem;
 }
 
 .gupy span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.remote-work span {
   display: flex;
   align-items: center;
   gap: 0.5rem;

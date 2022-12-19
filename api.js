@@ -1,6 +1,15 @@
+
+const api = `https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?`
+const jobName = '&jobName=financeiro'
+const type = '&type=vacancy_type_effective'
+const isRemoteWork = '&isRemoteWork=true'
+const limit = '&limit=3000'
+
 const fetchGupy = async () => {
   const APIResponse = await fetch(
-    `https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?&jobName=financeiro&limit=300&type=vacancy_type_effective`
+    // `https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?&jobName=financeiro&limit=300&type=vacancy_type_effective`
+
+    `${api}${limit}${jobName}${isRemoteWork}${type}`
   );
 
   if (APIResponse.status === 200) {
@@ -53,15 +62,15 @@ const renderGupy = async () => {
       
       <div class="remote-work">
       <span class="tooltip">Trabalho remoto:  ${element["isRemoteWork"] === true
-        ? `🏠 <span class="tooltiptext">Sim
+        ? `<i class="ph-house"></i> <span class="tooltiptext">Sim
         </span>`
-        : `🏢 <span class="tooltiptext">Não
+        : `<i class="ph-buildings"></i> <span class="tooltiptext">Não
         </span>`
       }</span>
       </div>
       
       <div class="gupy">
-      <span class="tooltip">Tem selo Gupy: ${element["badges"]["friendlyBadge"] === true
+      <span class="tooltip">Tem Selo Gupy: ${element["badges"]["friendlyBadge"] === true
         ? `<i class="ph-circle-wavy-check"></i>
       
       <span class="tooltiptext">Empresas com alta taxa de retorno e atividade nas vagas nos últimos 3 meses</span>`

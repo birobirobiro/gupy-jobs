@@ -46,6 +46,7 @@
           <div class="info-group">
             <label for="">Estado</label>
             <select name="state" id="state">
+              <option value="select">Selecione um estado</option>
               <option value="sp">São Paulo</option>
               <option value="rj">Rio de Janeiro</option>
               <option value="sc">Santa Catarina</option>
@@ -54,7 +55,8 @@
 
           <div class="info-group">
             <label for="">Cidade</label>
-            <select name="state" id="state">
+            <select name="city" id="city" disabled>
+              <option value="city">Selecione uma cidade</option>
               <option value="sp">São Paulo</option>
               <option value="rj">Rio de Janeiro</option>
               <option value="sc">Santa Catarina</option>
@@ -67,12 +69,13 @@
 
           <div class="info-group">
             <label for="">Empresa</label>
-            <input type="text">
+            <input type="text" placeholder="Digite o nome da empresa">
           </div>
 
           <div class="info-group">
             <label for="">Tipo da Vaga</label>
-            <select name="state" id="state">
+            <select name="job" id="job">
+              <option value="select">Selecione</option>
               <option value="aprendiz">Aprendiz</option>
               <option value="efetivo">Efetivo</option>
               <option value="estagio">Estágio</option>
@@ -84,17 +87,17 @@
         </fieldset>
 
         <fieldset>
-          <legend>Trabalho Remoto</legend>
+          <legend>Trabalho Remoto <i class="ph-house"></i></legend>
 
           <div class="info-group">
             <div class="input-radio">
-              <input type="radio" id="remote" name="drone" value="remote" checked>
+              <input type="radio" id="remote" name="yes" value="remote">
               <label for="remote">Sim</label>
 
-              <input type="radio" id="remote" name="drone" value="remote" checked>
+              <input type="radio" id="remote" name="no" value="remote">
               <label for="remote">Não</label>
 
-              <input type="radio" id="remote" name="drone" value="remote" checked>
+              <input type="radio" id="remote" name="any" value="remote" checked>
               <label for="remote">Tanto faz</label>
             </div>
           </div>
@@ -102,18 +105,18 @@
         </fieldset>
 
         <fieldset>
-          <legend>Tem selo Gupy</legend>
+          <legend>Apenas com selo Gupy <i class="ph-circle-wavy-check"></i></legend>
 
           <div class="info-group">
             <div class="input-radio">
-              <input type="radio" id="remote" name="drone" value="remote" checked>
-              <label for="remote">Sim</label>
+              <input type="radio" id="remote" name="yes" value="badge">
+              <label for="badge">Sim</label>
 
-              <input type="radio" id="remote" name="drone" value="remote" checked>
-              <label for="remote">Não</label>
+              <input type="radio" id="badge" name="no" value="badge">
+              <label for="badge">Não</label>
 
-              <input type="radio" id="remote" name="drone" value="remote" checked>
-              <label for="remote">Tanto faz</label>
+              <input type="radio" id="badge" name="any" value="badge" checked>
+              <label for="badge">Tanto faz</label>
             </div>
           </div>
 
