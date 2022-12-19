@@ -31,7 +31,8 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  color: #ec338d;
 }
 
 h1 {
@@ -195,6 +196,7 @@ footer {
   border-radius: 6px;
   padding: 0.5rem;
   font-size: 16px;
+  justify-content: center;
 
   /* Position the tooltip */
   position: absolute;
@@ -205,24 +207,33 @@ footer {
   visibility: visible;
 }
 
+.remote-work .tooltip .tooltiptext {
+  margin-left: 1.25rem;
+}
+
+.gupy .tooltip .tooltiptext {
+  margin-left: 9rem;
+}
+
+.gupy span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .location {
   gap: 0.5rem;
   display: flex;
 }
 
-.gupy span {
-  gap: 0.5rem;
-  display: flex;
-  align-items: center;
-}
-
 footer {
   width: 100%;
   margin: 0px;
-  gap: 0.5rem;
   font-size: 1rem;
-  display: flex;
-  align-items: center;
+}
+
+footer a {
+  display: unset;
 }
 
 @media (min-width: 768px) {
