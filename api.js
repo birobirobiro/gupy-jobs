@@ -1,9 +1,8 @@
-
-const api = `https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?`
-const jobName = '&jobName=financeiro'
-const type = '&type=vacancy_type_effective'
-const isRemoteWork = '&isRemoteWork=true'
-const limit = '&limit=3000'
+const api = `https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?`;
+const jobName = "&jobName=financeiro";
+const type = "&type=vacancy_type_effective";
+const isRemoteWork = "&isRemoteWork=true";
+const limit = "&limit=3000";
 
 const fetchGupy = async () => {
   const APIResponse = await fetch(
