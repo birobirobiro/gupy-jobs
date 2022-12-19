@@ -73,6 +73,7 @@ button {
   border: none;
   color: var(--white);
   cursor: pointer;
+  padding: 1rem;
 }
 
 .find-header {
