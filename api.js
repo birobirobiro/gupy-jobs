@@ -1,15 +1,15 @@
 const fetchGupy = async () => {
-
-  const APIResponse = await fetch(`https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?&jobName=financeiro&limit=300&type=vacancy_type_effective&isRemoteWork=true`);
+  const APIResponse = await fetch(
+    `https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?&jobName=financeiro&limit=300&type=vacancy_type_effective&isRemoteWork=true`
+  );
 
   if (APIResponse.status === 200) {
     const data = await APIResponse.json();
     return data;
+  } else {
+    alert("Erro ao buscar dados");
   }
-  else {
-    alert('Erro ao buscar dados');
-  }
-}
+};
 
 const renderGupy = async () => {
   const response = await fetchGupy();
@@ -20,46 +20,58 @@ const renderGupy = async () => {
   });
 
   // Create an array of job cards
-  const jobCards = sortedJobs.map(element => {
+  const jobCards = sortedJobs.map((element) => {
     return `
       <div class="cards">
           
         <div class="title">
         <div class="info-company">
-        <img src="${element['careerPageLogo']}" alt="${element['careerPageName']}" >
+        <img src="${element["careerPageLogo"]}" alt="${element["careerPageName"]
+      }" >
         
-        <h1 class="job-company">${element['careerPageName']}</h1>
+        <h1 class="job-company">${element["careerPageName"]}</h1>
           
         </div>
           
-          <h3>${element['name']}</h3>
+          <h3>${element["name"]}</h3>
 
         </div>
 
         <div class="location">
-          <span>${element['city']}</span>
+          <span>${element["city"]}</span>
           <span>/</span>
-          <span>${element['state']}</span>
+          <span>${element["state"]}</span>
         </div>
 
-        <span>Vaga publicada em: ${new Date(element['publishedDate']).toLocaleDateString('pt-BR', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    })}</span>
+        <span>Vaga publicada em: ${new Date(
+        element["publishedDate"]
+      ).toLocaleDateString("pt-BR", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      })}</span>
 
-        <span class="tooltip">Trabalho remoto:  ${element['isRemoteWork'] === true ? `🏠 <span class="tooltiptext">Sim
-        </span>` : `🏢 <span class="tooltiptext">Não
-        </span>`}</span>
-
-        <span class="tooltip">Tem selo Gupy: ${element['badges']['friendlyBadge']
-        === true ? `✅ <span class="tooltiptext">Empresas com alta taxa de retorno e atividade nas vagas nos últimos 3 meses
-        </span>` : `🚫 <span class="tooltiptext">Sem informações
+        <span class="tooltip">Trabalho remoto:  ${element["isRemoteWork"] === true
+        ? `🏠 <span class="tooltiptext">Sim
         </span>`
-      }
-        </span>
+        : `🏢 <span class="tooltiptext">Não
+        </span>`
+      }</span>
 
-        <a href="${element['careerPageUrl']}" target"_blank">
+      <div class="gupy">
+      <span class="tooltip">Tem selo Gupy: ${element["badges"]["friendlyBadge"] === true
+        ? `<i class="ph-circle-wavy-check-thin"></i>
+      
+      <span class="tooltiptext">Empresas com alta taxa de retorno e atividade nas vagas nos últimos 3 meses</span>`
+        : `<i class="ph-circle-wavy-warning-thin"></i> 
+      
+      <span class="tooltiptext">Sem informações
+      </span>`
+      }
+      </span>
+      </div>
+
+        <a href="${element["careerPageUrl"]}" target"_blank">
         Ver vaga
         <i class="ph-arrow-square-out-fill"></i>
         </a>
@@ -68,10 +80,10 @@ const renderGupy = async () => {
   });
 
   // Join the job cards into a single string
-  const jobCardsString = jobCards.join('');
+  const jobCardsString = jobCards.join("");
 
   // Insert the job cards string into the HTML
-  document.getElementById('cards-container').innerHTML = jobCardsString;
-}
+  document.getElementById("cards-container").innerHTML = jobCardsString;
+};
 
 renderGupy();
