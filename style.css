@@ -18,7 +18,6 @@ body {
   color: var(--white);
   font-family: "Roboto", sans-serif;
   justify-content: center;
-  overflow-x: hidden;
 }
 
 a {
@@ -36,7 +35,12 @@ a:hover {
 }
 
 h1 {
+  font-size: 1.2rem;
   color: var(--pink);
+}
+
+h3 {
+  font-size: 0.875rem;
 }
 
 hr {
@@ -167,12 +171,13 @@ footer {
   padding: 1.25rem;
   gap: 1.25rem;
   transition: all 0.3s ease 0s;
+  width: 100%;
 }
 
 .title {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.8rem;
 }
 
 .info-company {
@@ -195,7 +200,7 @@ footer {
   text-align: center;
   border-radius: 6px;
   padding: 0.5rem;
-  font-size: 16px;
+  font-size: 1rem;
   justify-content: center;
 
   /* Position the tooltip */
@@ -239,6 +244,14 @@ footer a {
 @media (min-width: 768px) {
   #cards-container {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
   }
 }
 
