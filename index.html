@@ -2,139 +2,145 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Links -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="https://i2.wp.com/sendtask.io/wp-content/uploads/2017/04/emoji-jobs.png"
-    type="image/png">
+    <!-- Links -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://i2.wp.com/sendtask.io/wp-content/uploads/2017/04/emoji-jobs.png"
+        type="image/png">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Icons -->
-  <script src="https://unpkg.com/phosphor-icons"></script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/phosphor-icons"></script>
 
-  <title>ROCKETJOBS .</title>
+    <title>ROCKETJOBS .</title>
 </head>
 
 <body>
-  <header>
-    <h1 class="logo">ROCKETJOBS
-      <span>.</span>
-    </h1>
-  </header>
-  <div class="container">
+    <header>
+        <h1 class="logo">ROCKETJOBS
+            <span>.</span>
+        </h1>
+    </header>
+    <div class="container">
 
-    <div class="find-jobs">
-      <div class="find-header">
-        <h2>Encontrar vagas</h2>
+        <div class="find-jobs">
+            <div class="find-header">
+                <h2>Encontrar vagas</h2>
 
-        <button id="filter" onclick="ShowFilter()">
-          <i class="ph-caret-down"></i>
-        </button>
-      </div>
-      <hr>
-
-      <form id="filter-show" style="display: none;">
-        <fieldset>
-          <legend>Local de trabalho</legend>
-
-          <div class="info-group">
-            <label for="">Estado</label>
-            <select name="state" id="state">
-              <option value="select">Selecione um estado</option>
-              <option value="sp">São Paulo</option>
-              <option value="rj">Rio de Janeiro</option>
-              <option value="sc">Santa Catarina</option>
-            </select>
-          </div>
-
-          <div class="info-group">
-            <label for="">Cidade</label>
-            <select name="city" id="city" disabled>
-              <option value="city">Selecione uma cidade</option>
-              <option value="sp">São Paulo</option>
-              <option value="rj">Rio de Janeiro</option>
-              <option value="sc">Santa Catarina</option>
-            </select>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Dados da Vaga</legend>
-
-          <div class="info-group">
-            <label for="">Empresa</label>
-            <input type="text" placeholder="Digite o nome da empresa">
-          </div>
-
-          <div class="info-group">
-            <label for="">Tipo da Vaga</label>
-            <select name="job" id="job">
-              <option value="select">Selecione</option>
-              <option value="aprendiz">Aprendiz</option>
-              <option value="efetivo">Efetivo</option>
-              <option value="estagio">Estágio</option>
-              <option value="freelancer">Freelancer</option>
-              <option value="temporario">Temporário</option>
-              <option value="trainee">Trainee</option>
-            </select>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Trabalho Remoto <i class="ph-house"></i></legend>
-
-          <div class="info-group">
-            <div class="input-radio">
-              <input type="radio" id="remote" name="yes" value="remote">
-              <label for="remote">Sim</label>
-
-              <input type="radio" id="remote" name="no" value="remote">
-              <label for="remote">Não</label>
-
-              <input type="radio" id="remote" name="any" value="remote" checked>
-              <label for="remote">Tanto faz</label>
+                <button id="filter" onclick="ShowFilter()">
+                    <i class="ph-caret-down"></i>
+                </button>
             </div>
-          </div>
+            <hr>
 
-        </fieldset>
+            <form id="filter-show" style="display: none;">
+                <fieldset>
+                    <legend>Local de trabalho</legend>
 
-        <fieldset>
-          <legend>Apenas com selo Gupy <i class="ph-circle-wavy-check"></i></legend>
+                    <div class="info-group">
+                        <label for="">Estado</label>
+                        <select name="state" id="state">
+                            <option value="select">Selecione um estado</option>
+                            <option value="sp">São Paulo</option>
+                            <option value="rj">Rio de Janeiro</option>
+                            <option value="sc">Santa Catarina</option>
+                        </select>
+                    </div>
 
-          <div class="info-group">
-            <div class="input-radio">
-              <input type="radio" id="remote" name="yes" value="badge">
-              <label for="badge">Sim</label>
+                    <div class="info-group">
+                        <label for="">Cidade</label>
+                        <select name="city" id="city" disabled>
+                            <option value="city">Selecione uma cidade</option>
+                            <option value="sp">São Paulo</option>
+                            <option value="rj">Rio de Janeiro</option>
+                            <option value="sc">Santa Catarina</option>
+                        </select>
+                    </div>
+                </fieldset>
 
-              <input type="radio" id="badge" name="no" value="badge">
-              <label for="badge">Não</label>
+                <fieldset>
+                    <legend>Dados da Vaga</legend>
 
-              <input type="radio" id="badge" name="any" value="badge" checked>
-              <label for="badge">Tanto faz</label>
-            </div>
-          </div>
+                    <div class="info-group">
+                        <label for="">Empresa</label>
+                        <input type="text" placeholder="Digite o nome da empresa">
+                    </div>
 
-        </fieldset>
-      </form>
+                    <div class="info-group">
+                        <label for="">Tipo da Vaga</label>
+                        <select name="job" id="job">
+                            <option value="select">Selecione</option>
+                            <option value="aprendiz">Aprendiz</option>
+                            <option value="efetivo">Efetivo</option>
+                            <option value="estagio">Estágio</option>
+                            <option value="freelancer">Freelancer</option>
+                            <option value="temporario">Temporário</option>
+                            <option value="trainee">Trainee</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Trabalho Remoto <i class="ph-house"></i></legend>
+
+                    <div class="info-group">
+                        <div class="input-radio">
+                            <input type="radio" id="remote" name="yes" value="remote">
+                            <label for="remote">Sim</label>
+
+                            <input type="radio" id="remote" name="no" value="remote">
+                            <label for="remote">Não</label>
+
+                            <input type="radio" id="remote" name="any" value="remote" checked>
+                            <label for="remote">Tanto faz</label>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Apenas com selo Gupy <i class="ph-circle-wavy-check"></i></legend>
+
+                    <div class="info-group">
+                        <div class="input-radio">
+                            <input type="radio" id="remote" name="yes" value="badge">
+                            <label for="badge">Sim</label>
+
+                            <input type="radio" id="badge" name="no" value="badge">
+                            <label for="badge">Não</label>
+
+                            <input type="radio" id="badge" name="any" value="badge" checked>
+                            <label for="badge">Tanto faz</label>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+
+        <div id="loading">
+            <img src="./assets/loading.svg" alt="Carregando...">
+            <p>Buscando vagas, aguarde...</p>
+        </div>
+
+        <div id="cards-container">
+
+        </div>
+    </div>
     </div>
 
-    <div id="cards-container"></div>
+    <footer>
+        <p>Feito com 💜 por <a href="https://birobirobiro.dev/" target="_blank">birobirobiro</a></p>
+    </footer>
 
-  </div>
-  </div>
-
-  <footer>
-    <p>Feito com 💜 por <a href="https://birobirobiro.dev/" target="_blank">birobirobiro</a></p>
-  </footer>
-
-  <script src="./filter.js" type="module"></script>
-  <script src="./api.js" type="module"> </script>
+    <script src="./filter.js" type="module"></script>
+    <script src="./api.js" type="module"> </script>
 
 </body>
 

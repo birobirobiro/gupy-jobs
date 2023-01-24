@@ -5,11 +5,18 @@ const isRemoteWork = "&isRemoteWork=true";
 const limit = "&limit=3000";
 
 const fetchGupy = async () => {
+
+  document.getElementById("loading").style.display = "block";
+
   const APIResponse = await fetch(
+
     // `https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?&jobName=financeiro&limit=300&type=vacancy_type_effective`
+
 
     `${api}${limit}${jobName}${isRemoteWork}${type}`
   );
+
+  document.getElementById("loading").style.display = "none";
 
   if (APIResponse.status === 200) {
     const data = await APIResponse.json();
