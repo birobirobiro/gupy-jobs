@@ -1,5 +1,5 @@
 const api = `https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?`;
-const jobName = "&jobName=financeiro";
+const jobName = "&jobName=front-end";
 const type = "&type=vacancy_type_effective";
 const isRemoteWork = "&isRemoteWork=true";
 const limit = "&limit=3000";
