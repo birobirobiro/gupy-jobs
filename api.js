@@ -61,6 +61,8 @@ const renderGupy = async (page = 1) => {
 
     // Create an array of job cards
     const jobCards = jobsData.map((element) => {
+      const cityState = element.city && element.state ? `<span>${element.city}</span><span>/</span><span>${element.state}</span>` : element.city || element.state || '';
+      
       return `
         <a href="${element.careerPageUrl}" target="_blank" class="block border border-gray-700 rounded-lg p-6 bg-gray-800 transform transition-transform hover:translate-y-1">
           <div class="flex items-center gap-3 mb-4">
@@ -69,9 +71,7 @@ const renderGupy = async (page = 1) => {
           </div>
           <h3 class="text-lg text-white mb-2">${element.name}</h3>
           <div class="flex gap-2 text-sm text-gray-400 mb-4">
-            <span>${element.city}</span>
-            <span>/</span>
-            <span>${element.state}</span>
+            ${cityState}
           </div>
           <span class="text-sm text-gray-400 mb-4 block">Vaga publicada em: ${new Date(element.publishedDate).toLocaleDateString("pt-BR", {
           day: "2-digit",
