@@ -1,4 +1,4 @@
-const api = `https://corsproxy.io/?https://portal.api.gupy.io/api/v1/jobs?`;
+const api = `https://corsbypass-5jyi.onrender.com/https://portal.api.gupy.io/api/v1/jobs?`;
 const limit = 10;
 let totalJobs = 0;
 let currentPage = 1;
@@ -20,15 +20,42 @@ const vacancyTypeMap = {
   "vacancy_type_summer": "Summer Job"
 };
 
+const createSkeletonCard = () => {
+  return `
+    <div class="border border-gray-700 rounded-lg p-6 bg-gray-800">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="skeleton w-10 h-10 rounded-md"></div>
+        <div class="skeleton h-6 w-40"></div>
+      </div>
+      <div class="skeleton h-5 w-3/4 mb-2"></div>
+      <div class="skeleton h-4 w-1/2 mb-4"></div>
+      <div class="skeleton h-4 w-2/3 mb-4"></div>
+      <div class="skeleton h-4 w-1/3 mb-2"></div>
+      <div class="skeleton h-4 w-1/2 mb-2"></div>
+      <div class="skeleton h-4 w-2/5 mb-2"></div>
+      <div class="skeleton h-4 w-3/5 mb-2"></div>
+    </div>
+  `;
+};
+
+const showSkeletonLoading = () => {
+  const loadingContainer = document.getElementById("loading");
+  loadingContainer.style.display = "grid";
+  loadingContainer.innerHTML = Array(limit).fill(createSkeletonCard()).join("");
+};
+
+const hideSkeletonLoading = () => {
+  document.getElementById("loading").style.display = "none";
+};
+
 const fetchGupy = async (page = 1) => {
   const offset = (page - 1) * limit;
-  document.getElementById("loading").style.display = "flex";
+  showSkeletonLoading();
 
   const queryParams = new URLSearchParams({
     limit,
     offset,
     jobName: selectedArea,
-    _t: new Date().getTime() // Add timestamp to prevent caching
   }).toString();
 
   const apiUrl = `${api}${queryParams}`;
@@ -36,13 +63,8 @@ const fetchGupy = async (page = 1) => {
   console.log("API Request URL:", apiUrl);
 
   try {
-    const APIResponse = await fetch(apiUrl, {
-      headers: {
-        'Cache-Control': 'no-cache', // Optional header to further prevent caching
-        'Pragma': 'no-cache'
-      }
-    });
-    document.getElementById("loading").style.display = "none";
+    const APIResponse = await fetch(apiUrl);
+    hideSkeletonLoading();
 
     if (APIResponse.status === 200) {
       const data = await APIResponse.json();
@@ -53,7 +75,7 @@ const fetchGupy = async (page = 1) => {
       alert("Erro ao buscar dados. Verifique o console para mais detalhes.");
     }
   } catch (error) {
-    document.getElementById("loading").style.display = "none";
+    hideSkeletonLoading();
     console.error("Fetch error:", error);
     alert("Erro ao buscar dados. Verifique o console para mais detalhes.");
   }
