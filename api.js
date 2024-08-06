@@ -28,6 +28,7 @@ const fetchGupy = async (page = 1) => {
     limit,
     offset,
     jobName: selectedArea,
+    _t: new Date().getTime() // Add timestamp to prevent caching
   }).toString();
 
   const apiUrl = `${api}${queryParams}`;
@@ -35,7 +36,12 @@ const fetchGupy = async (page = 1) => {
   console.log("API Request URL:", apiUrl);
 
   try {
-    const APIResponse = await fetch(apiUrl);
+    const APIResponse = await fetch(apiUrl, {
+      headers: {
+        'Cache-Control': 'no-cache', // Optional header to further prevent caching
+        'Pragma': 'no-cache'
+      }
+    });
     document.getElementById("loading").style.display = "none";
 
     if (APIResponse.status === 200) {
