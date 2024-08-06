@@ -1,5 +1,5 @@
 const api = `https://corsbypass-5jyi.onrender.com/https://portal.api.gupy.io/api/v1/jobs?`;
-const limit = 10;
+const limit = 12;
 let totalJobs = 0;
 let currentPage = 1;
 
