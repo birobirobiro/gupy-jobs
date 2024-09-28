@@ -1,23 +1,23 @@
-const api = `https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?`;
+const api = `https://corseverywhere.up.railway.app/https://portal.api.gupy.io/api/v1/jobs?`;
 const limit = 12;
 let totalJobs = 0;
 let currentPage = 1;
 
-let selectedArea = 'front-end';
+let selectedArea = "front-end";
 
 const vacancyTypeMap = {
-  "vacancy_type_effective": "Efetivo",
-  "vacancy_type_apprentice": "Aprendiz",
-  "vacancy_type_internship": "Estágio",
-  "vacancy_legal_entity": "Pessoa Jurídica",
-  "vacancy_type_trainee": "Trainee",
-  "vacancy_type_temporary": "Temporário",
-  "vacancy_type_freelancer": "Freelancer",
-  "vacancy_type_outsource": "Terceirizado",
-  "vacancy_type_talent_pool": "Banco de Talentos",
-  "vacancy_type_volunteer": "Voluntário",
-  "vacancy_type_associate": "Associado",
-  "vacancy_type_summer": "Summer Job"
+  vacancy_type_effective: "Efetivo",
+  vacancy_type_apprentice: "Aprendiz",
+  vacancy_type_internship: "Estágio",
+  vacancy_legal_entity: "Pessoa Jurídica",
+  vacancy_type_trainee: "Trainee",
+  vacancy_type_temporary: "Temporário",
+  vacancy_type_freelancer: "Freelancer",
+  vacancy_type_outsource: "Terceirizado",
+  vacancy_type_talent_pool: "Banco de Talentos",
+  vacancy_type_volunteer: "Voluntário",
+  vacancy_type_associate: "Associado",
+  vacancy_type_summer: "Summer Job",
 };
 
 const createSkeletonCard = () => {
@@ -89,34 +89,57 @@ const renderGupy = async (page = 1) => {
 
     // Create an array of job cards
     const jobCards = jobsData.map((element) => {
-      const cityState = element.city && element.state ? `<span>${element.city}</span><span>/</span><span>${element.state}</span>` : element.city || element.state || '';
-      
+      const cityState =
+        element.city && element.state
+          ? `<span>${element.city}</span><span>/</span><span>${element.state}</span>`
+          : element.city || element.state || "";
+
       return `
-        <a href="${element.careerPageUrl}" target="_blank" class="block border border-gray-700 rounded-lg p-6 bg-gray-800 transform transition-transform hover:translate-y-1">
+        <a href="${
+          element.careerPageUrl
+        }" target="_blank" class="block border border-gray-700 rounded-lg p-6 bg-gray-800 transform transition-transform hover:translate-y-1">
           <div class="flex items-center gap-3 mb-4">
-            <img src="${element.careerPageLogo}" alt="${element.careerPageName}" class="w-10 h-10 rounded-md">
+            <img src="${element.careerPageLogo}" alt="${
+        element.careerPageName
+      }" class="w-10 h-10 rounded-md">
             <h1 class="text-xl text-white">${element.careerPageName}</h1>
           </div>
           <h3 class="text-lg text-white mb-2">${element.name}</h3>
           <div class="flex gap-2 text-sm text-gray-400 mb-4">
             ${cityState}
           </div>
-          <span class="text-sm text-gray-400 mb-4 block">Vaga publicada em: ${new Date(element.publishedDate).toLocaleDateString("pt-BR", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-        })}</span>
+          <span class="text-sm text-gray-400 mb-4 block">Vaga publicada em: ${new Date(
+            element.publishedDate
+          ).toLocaleDateString("pt-BR", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          })}</span>
           <div class="flex items-center gap-2 text-sm mb-2">
-            <span class="flex items-center gap-1">Trabalho remoto: ${element.isRemoteWork ? `<i class="ph-house text-green-400"></i> Sim` : `<i class="ph-buildings text-red-400"></i> Não`}</span>
+            <span class="flex items-center gap-1">Trabalho remoto: ${
+              element.isRemoteWork
+                ? `<i class="ph-house text-green-400"></i> Sim`
+                : `<i class="ph-buildings text-red-400"></i> Não`
+            }</span>
           </div>
           <div class="flex items-center gap-2 text-sm mb-2">
-            <span class="flex items-center gap-1">Tem Selo Gupy: ${element.badges?.friendlyBadge ? `<i class="ph-circle-wavy-check text-yellow-400"></i> Sim` : `<i class="ph-circle-wavy-warning text-yellow-400"></i> Não`}</span>
+            <span class="flex items-center gap-1">Tem Selo Gupy: ${
+              element.badges?.friendlyBadge
+                ? `<i class="ph-circle-wavy-check text-yellow-400"></i> Sim`
+                : `<i class="ph-circle-wavy-warning text-yellow-400"></i> Não`
+            }</span>
           </div>
           <div class="flex items-center gap-2 text-sm mb-2">
-            <span class="flex items-center gap-1">Vagas para PcD: ${element.isPWD ? `<i class="ph-wheelchair text-green-400"></i> Sim` : `<i class="ph-wheelchair text-red-400"></i> Não`}</span>
+            <span class="flex items-center gap-1">Vagas para PcD: ${
+              element.isPWD
+                ? `<i class="ph-wheelchair text-green-400"></i> Sim`
+                : `<i class="ph-wheelchair text-red-400"></i> Não`
+            }</span>
           </div>
           <div class="flex items-center gap-2 text-sm mb-2">
-            <span class="flex items-center gap-1">Tipo de vaga: ${vacancyTypeMap[element.type]}</span>
+            <span class="flex items-center gap-1">Tipo de vaga: ${
+              vacancyTypeMap[element.type]
+            }</span>
           </div>
         </a>
       `;
@@ -130,9 +153,11 @@ const renderGupy = async (page = 1) => {
 
     // Update button visibility
     document.getElementById("prev-button").disabled = currentPage === 1;
-    document.getElementById("next-button").disabled = currentPage * limit >= totalJobs;
+    document.getElementById("next-button").disabled =
+      currentPage * limit >= totalJobs;
   } else {
-    document.getElementById("cards-container").innerHTML = "<p>Nenhuma vaga encontrada.</p>";
+    document.getElementById("cards-container").innerHTML =
+      "<p>Nenhuma vaga encontrada.</p>";
   }
 };
 
